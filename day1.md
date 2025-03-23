@@ -1,16 +1,15 @@
+# Kubernetes Learning - Day 1
+
 ## Day 1: Pods and Multi-Container Pods
 
 **Goal**: To understand pod lifecycle, resource requests/limits, and multi-container patterns.
 **Task**: Deploy pods with different configurations.
+
 ## Specifically:
 - Deploy a single-container Nginx pod.
 - Deploy a pod with two containers: Nginx and a sidecar container that logs the Nginx access logs to stdout.
 - Experiment with setting resource requests and limits for the containers.
 
-# Resources:
-- Kubernetes documentation: https://kubernetes.io/docs/concepts/workloads/pods/
-
-# Kubernetes Learning - Day 1
 
 ## Overview
 This repository contains basic Kubernetes Pod configurations exploring fundamental concepts including:
