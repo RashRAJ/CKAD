@@ -1,0 +1,74 @@
+apiversion : v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: default
+  labels:
+    app: nginx
+data:
+  nginx.conf: |
+    worker_processes 1;
+
+    events {
+        worker_connections 1024;
+    }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        sendfile        on;
+        keepalive_timeout  65;
+
+        server {
+            listen       80;
+            server_name  localhost;
+
+            location / {
+                root   /usr/share/nginx/html;
+                index  index.html index.htm;
+            }
+
+            error_page   500 502 503 504 /50x.html;
+            location = /50x.html {
+                root   /usr/share/nginx/html;
+            }
+        }
+    }
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Welcome to nginx!</title>
+        <style>
+            body {
+                width: 35em;
+                margin: 0 auto;
+                font-family: Tahoma, Verdana, Arial, sans-serif;
+                font-size: 100%;
+                line-height: 1.5em;
+            }
+            h1 {
+                color: #f00;
+                background-color: #ddd;
+                padding: 0.5em 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to nginx!</h1>
+        <p>If you see this page, the nginx web server is successfully installed and working.</p>
+        <p>Further configuration is required.</p>
+        <p>For online documentation and support please refer to
+            <a href="http://nginx.org/">nginx.org</a>.<br/>
+            Commercial support is available at
+            <a href="http://nginx.com/">nginx.com</a>.</p>
+        <p><em>Thank you for using nginx.</em></p>
+    </body>
+    </html>
+  README.md: |
+    # Nginx ConfigMap
+    This ConfigMap contains the configuration files for the Nginx web server.
+    - nginx.conf: The main configuration file for Nginx.
+    - index.html: The default HTML page served by Nginx.
+    - README.md: This file.
