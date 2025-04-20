@@ -1,4 +1,4 @@
-# CKAD Learning Repository
+# CKAD In 30 Days
 
 Welcome! This repository contains notes, Kubernetes manifest examples, and exercises gathered while studying for the Certified Kubernetes Application Developer (CKAD) exam.
 
